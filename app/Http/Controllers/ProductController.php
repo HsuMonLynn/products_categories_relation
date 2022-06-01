@@ -24,6 +24,8 @@ class ProductController extends Controller
         })
             ->orderBy('created_at', 'desc')
             ->paginate(5);
+            
+        $products->appends (array ('search' => $search));
         return view('products.index',compact('products'));
     }
 
@@ -124,6 +126,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
+        $product->categories()->detach();
 
         return redirect()
             ->route('products.index')

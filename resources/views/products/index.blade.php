@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             @if ($message = Session::get('success'))
             <div class="alert alert-success row">
                 <p style="margin: 0" class="col-md-11">{{ $message }}</p>
